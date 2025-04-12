@@ -1,5 +1,4 @@
 from github import Github
-import requests
 from config import githubkey as cfg
 import base64
 
