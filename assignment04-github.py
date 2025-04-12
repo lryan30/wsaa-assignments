@@ -5,7 +5,7 @@
 
 from github import Github
 from config import githubkey as cfg
-import base64
+import requests
 
 # API key for authorization
 g = Github(cfg)
@@ -17,20 +17,28 @@ repo = g.get_repo("lryan30/wsaa-assignments")
 file_path = "file.txt"  
 
 # Get the file content
-file = repo.get_contents(file_path)
+file_content = repo.get_contents(file_path)
 
-# decoded content
-decoded_content = base64.b64decode(file.content).decode("utf-8")
-print(decoded_content)
+#get url of the file
+url = file_content.download_url
+print(url)
+
+# Get the file content using requests
+response = requests.get(url)
+
+file_data = response.text
+print(file_data)
 
 # replace Andrew with Louise
-updated_content = decoded_content.replace("Andrew", "Louise")
-print(updated_content)
+file_data = file_data.replace("Andrew", "Louise")
+print(file_data)
 
 # Update the file in the repository
-repo.update_file(file_path, "Updated file.txt", updated_content, file.sha)
-
+repo.update_file(file_path, "Updated file", file_data, file_content.sha)
 print("File updated successfully!")
+
+
+
 
 
 
