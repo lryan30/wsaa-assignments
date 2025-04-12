@@ -10,7 +10,7 @@ g = Github(cfg)
 repo = g.get_repo("lryan30/wsaa-assignments")  
 
 # file path:
-file_path = "data/file.txt"  
+file_path = "file.txt"  
 
 # Get the file content
 file = repo.get_contents(file_path)
