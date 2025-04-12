@@ -1,6 +1,6 @@
 
-# This program that retrieves the dataset for the "exchequer account (historical series)" from the CSO, 
-# and store into a file called "cso.json". 
+# This program retrieves the dataset for the "exchequer account (historical series)" from the CSO, 
+# and stores it into a file called "cso.json". 
 # Author: LR
 
 import requests  
