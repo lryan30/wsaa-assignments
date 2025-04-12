@@ -1,6 +1,5 @@
 
-
-# Write a program that retrieves the dataset for the "exchequer account (historical series)" from the CSO, 
+# This program that retrieves the dataset for the "exchequer account (historical series)" from the CSO, 
 # and store into a file called "cso.json". 
 # Author: LR
 
@@ -16,7 +15,7 @@ response = requests.get(url)
 data = response.json()   
  
 with open('cso.json', "w") as json_file: # open the file in write mode which creates the file.
-        json.dump(data, json_file)  # json dump is used to write the data to the file in json format
+        json.dump(data, json_file, indent=4)  # json dump is used to write the data to the file in json format
 
 print(f"Data has been saved in cso.json")
 

@@ -2,7 +2,7 @@
 # This script uses the GitHub API to access a file in a github repository using an API key.
 # It downloads the file from the repository, replaces the name "Andrew" with "Louise",
 # and then uploads the edited file back to the repository. 
-# Author: Louise Ryan
+# Author: LR
 
 
 from github import Github
