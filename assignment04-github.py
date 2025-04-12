@@ -10,14 +10,23 @@ g = Github(cfg)
 repo = g.get_repo("lryan30/wsaa-assignments")  
 
 # file path:
-file_path = "test.txt"  
+file_path = "data/file.txt"  
 
 # Get the file content
 file = repo.get_contents(file_path)
 
-# download the file content
-url = file.download_url
-response = requests.get(url, auth=('token', cfg))
+# decoded content
+decoded_content = base64.b64decode(file.content).decode("utf-8")
+print(decoded_content)
+
+# replace Andrew with Louise
+updated_content = decoded_content.replace("Andrew", "Louise")
+print(updated_content)
+
+# Update the file in the repository
+repo.update_file(file_path, "Updated file.txt", updated_content, file.sha)
+
+print("File updated successfully!")
 
 
 
